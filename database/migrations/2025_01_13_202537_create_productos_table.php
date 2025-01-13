@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('nombre');
             $table->unsignedBigInteger('marca_id');
             $table->foreign('marca_id')->references('id')->on('marcas');
+            $table->unsignedBigInteger('proveedor_id');
+            $table->foreign('proveedor_id')->references('id')->on('proveedores');
+            $table->integer('precio');
             $table->timestamps();
         });
     }

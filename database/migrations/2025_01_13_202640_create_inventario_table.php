@@ -14,11 +14,9 @@ return new class extends Migration
         Schema::create('inventario', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('producto_id');
-            $table->unsignedBigInteger('proveedor_id');
             $table->unsignedBigInteger('bodega_id');
             $table->integer('stock');
             $table->foreign('producto_id')->references('id')->on('productos');
-            $table->foreign('proveedor_id')->references('id')->on('proveedores');
             $table->foreign('bodega_id')->references('id')->on('bodegas');
             $table->timestamps();
         });
