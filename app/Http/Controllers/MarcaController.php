@@ -2,49 +2,47 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bodega;
+use App\Models\marca;
 use Illuminate\Http\Request;
 
-class BodegaController extends Controller
+class MarcaController extends Controller
 {
     public function getData(Request $request)
     {
-        $bodega = Bodega::all();
+        $marca = marca::all();
         return response()->json([
             'status' => '200',
-            'message' => 'Listado de Bodegas',
-            'result'=> $bodega
+            'message' => 'Listado de marcas',
+            'result'=> $marca
         ]);
     }
     public function save(Request $request){
-        $bodega = Bodega::create([
+        $marca = marca::create([
             'nombre' => $request->nombre,
-            'ubicacion' => $request->ubicacion,
         ]);
         return response()->json([
             'status' => '200',
-            'message' => 'Bodega creada',
+            'message' => 'marca creada',
         ]);
     }
 
     public function update(Request $request){
-        $bodega = Bodega::findOrFail($request->id);
-        $bodega->update([
+        $marca = marca::findOrFail($request->id);
+        $marca->update([
             'nombre' => $request->nombre,
-            'ubicacion' => $request->ubicacion,
         ]);
         
         return response()->json([
             'status' => '200',
-            'message' => 'Bodega actualizada',
+            'message' => 'marca actualizada',
         ]);
     }
     public function destroy(Request $request){
-        $bodega = Bodega::findOrFail($request->id);
-        $bodega->delete();
+        $marca = marca::findOrFail($request->id);
+        $marca->delete();
         return response()->json([
             'status' => '200',
-            'message' => 'Bodega eliminada',
+            'message' => 'marca eliminada',
         ]);
     }
 }
