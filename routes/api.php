@@ -13,46 +13,41 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 //Rutas BodegaController
-
 Route::controller(BodegaController::class)->group(function(){
     Route::get('bodega/datos','getData');
-    Route::save('bodega/guardar','save');
+    Route::post('bodega/guardar','save'); // Cambiado a post
     Route::put('bodega/actualizar','update');
-    Route::delete('bodega/borrer','destroy');
+    Route::delete('bodega/borrar','destroy');
 });
 
 //Rutas InventarioController
-
 Route::controller(InventarioController::class)->group(function(){
     Route::get('inventario/datos','getData');
-    Route::save('inventario/guardar','save');
+    Route::post('inventario/guardar','save'); // Cambiado a post
     Route::put('inventario/actualizar','update');
-    Route::delete('inventario/borrer','destroy');
+    Route::delete('inventario/borrar','destroy');
 });
 
 //Rutas MarcaController
-
 Route::controller(MarcaController::class)->group(function(){
     Route::get('marca/datos','getData');
-    Route::save('marca/guardar','save');
+    Route::post('marca/guardar','save'); // Cambiado a post
     Route::put('marca/actualizar','update');
-    Route::delete('marca/borrer','destroy');
+    Route::delete('marca/borrar','destroy');
 });
 
 //Rutas ProductoController
-
 Route::controller(ProductoController::class)->group(function(){
     Route::get('producto/datos','getData');
-    Route::save('producto/guardar','save');
+    Route::post('producto/guardar','save'); // Cambiado a post
     Route::put('producto/actualizar','update');
-    Route::delete('producto/borrer','destroy');
+    Route::delete('producto/borrar','destroy');
 });
 
 //Rutas ProveedorController
-
-Route::controller(BodegaController::class)->group(function(){
-    Route::get('bodega/datos','getData');
-    Route::save('bodega/guardar','save');
-    Route::put('bodega/actualizar','update');
-    Route::delete('bodega/borrer','destroy');
+Route::controller(ProveedorController::class)->group(function(){
+    Route::get('proveedor/datos','getData');
+    Route::post('proveedor/guardar','save'); // Cambiado a post
+    Route::put('proveedor/actualizar','update');
+    Route::delete('proveedor/borrar','destroy');
 });
