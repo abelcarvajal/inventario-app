@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class MarcaController extends Controller
 {
+    public function index()
+    {
+        $marca = marca::all();
+        return view('marca.index', compact('marca'));
+    }
+    
     public function getData(Request $request)
     {
         $marca = marca::all();

@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class BodegaController extends Controller
 {
+    public function index()
+    {
+        $bodegas = Bodega::all();
+        return view('bodega.index', compact('bodegas'));
+    }
     public function getData(Request $request)
     {
         $bodega = Bodega::all();

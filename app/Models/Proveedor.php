@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Proveedor extends Model
 {
     use HasFactory;
-
+    protected $table = 'proveedores';
     protected $fillable = [
         'nombre',
         'direccion',

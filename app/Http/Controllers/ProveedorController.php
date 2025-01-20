@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ProveedorController extends Controller
 {
+
+    public function index()
+    {  
+        $proveedor = Proveedor::all();
+        return view('proveedor.index', compact('proveedor'));
+    }
     public function getData(Request $request)
     {
         $proveedor = Proveedor::all();

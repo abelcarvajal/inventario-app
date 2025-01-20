@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Validator;
 
 class ProductoController extends Controller
 {
+    public function index()
+    {
+        $producto = Producto::all();
+        return view('producto.index', compact('producto'));
+    }
+
     public function getData(Request $request)
     {
         $producto = Producto::all();

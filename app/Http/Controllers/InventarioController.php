@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class InventarioController extends Controller
 {
+    public function index()
+    {
+        $inventario = Inventario::all();
+        return view('inventario.index', compact('inventario'));
+    }
 
     public function show($id){
         $inventario = Inventario::with('producto','bodega','stock')->findOrFail($id);
