@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class BodegaController extends Controller
 {
+    public function edit($id)
+    {
+        $bodega = Bodega::find($id);
+        return view('bodega.edit', compact('bodega'));
+    }
+
     public function index()
     {
         $bodegas = Bodega::all();

@@ -13,6 +13,8 @@ Route::get('/', function () {
 
 Route::get('/bodega', [BodegaController::class, 'index']);
 
+Route::get('/bodega/{id}/edit', [BodegaController::class, 'edit'])->name('bodega.edit'); // Ruta de edición
+Route::put('/bodega/{id}', [BodegaController::class, 'update'])->name('bodega.update'); // Ruta de actualización
 Route::get('/inventario', [InventarioController::class, 'index']);
 
 Route::get('/marca', [MarcaController::class, 'index']);
