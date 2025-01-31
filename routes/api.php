@@ -15,9 +15,9 @@ Route::get('/user', function (Request $request) {
 //Rutas BodegaController
 Route::controller(BodegaController::class)->group(function(){
     Route::get('bodega/datos','getData');
-    Route::post('bodega/guardar','save'); // Cambiado a post
-    Route::put('bodega/actualizar','update');
-    Route::delete('bodega/borrar','destroy');
+    Route::post('bodega/guardar','save'); 
+    Route::put('bodega/actualizar/{id}','update');
+    Route::delete('bodega/borrar/{id}','destroy');
 });
 
 //Rutas InventarioController

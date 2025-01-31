@@ -1,3 +1,7 @@
+ @extends('components.layout')
+
+@section('content')
+
 <form action="{{ route('bodega.update', $bodega->id) }}" method="POST">
     @csrf
     @method('PUT')
@@ -10,3 +14,4 @@
         <input type="text" name="ubicacion" class="form-control" value="{{ $bodega->ubicacion }}">
     <button type="submit" class="btn btn-success">Actualizar</button>
 </form>
+@endsection

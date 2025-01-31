@@ -18,6 +18,7 @@ class BodegaController extends Controller
         $bodegas = Bodega::all();
         return view('bodega.index', compact('bodegas'));
     }
+    
     public function getData(Request $request)
     {
         $bodega = Bodega::all();
@@ -27,31 +28,30 @@ class BodegaController extends Controller
             'result'=> $bodega
         ]);
     }
+    
     public function save(Request $request){
         $bodega = Bodega::create([
             'nombre' => $request->nombre,
             'ubicacion' => $request->ubicacion,
         ]);
-        return response()->json([
-            'status' => '200',
-            'message' => 'Bodega creada',
-        ]);
+        return redirect()->back()->with('mensaje', 'Bodega creada exitosamente');
     }
 
-    public function update(Request $request){
-        $bodega = Bodega::findOrFail($request->id);
+    public function update(Request $request, $id){
+        $bodega = Bodega::findOrFail($id);
         $bodega->update([
             'nombre' => $request->nombre,
             'ubicacion' => $request->ubicacion,
         ]);
         
         return response()->json([
-            'status' => '200',
-            'message' => 'Bodega actualizada',
+            'success' => true,
+            'message' => 'Bodega actualizada exitosamente',
         ]);
     }
-    public function destroy(Request $request){
-        $bodega = Bodega::findOrFail($request->id);
+
+    public function destroy($id){
+        $bodega = Bodega::findOrFail($id);
         $bodega->delete();
         return response()->json([
             'status' => '200',
